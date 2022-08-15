@@ -165,11 +165,11 @@ uint8_t const * tud_descriptor_configuration_cb(uint8_t index)
 // array of pointer to string descriptors
 static char const* string_desc_arr [] =
 {
-  [STRID_LANGID]       = (const char[]) { 0x09, 0x04 }, // supported language is English (0x0409)
-  [STRID_MANUFACTURER] = "TinyUSB",                     // Manufacturer
-  [STRID_PRODUCT]      = "Go to http://192.168.7.1/",   // Product
-  //[STRID_SERIAL]       = "123456",                      // Serial
-  [STRID_INTERFACE]    = "TinyUSB Network Interface"    // Interface Description
+  [STRID_LANGID]       = (const char[]) { 0x09, 0x04 },    // supported language is English (0x0409)
+  [STRID_MANUFACTURER] = "TinyUSB",                        // Manufacturer
+  [STRID_PRODUCT]      = "Pi Pico http://169.254.23.253/", // Product
+  //[STRID_SERIAL]       = "123456",                       // Serial
+  [STRID_INTERFACE]    = "TinyUSB Network Interface"       // Interface Description
 
   // STRID_MAC index is handled separately
   // STRID_SERIAL index is handled seperately

@@ -40,18 +40,16 @@ static struct pbuf *received_frame;
 /* it is suggested that the first byte is 0x02 to indicate a link-local address */
 const uint8_t tud_network_mac_address[6] = {0x02,0x02,0x84,0x6A,0x96,0x00};
 
-/* network parameters of this MCU */
-static const ip_addr_t ipaddr  = IPADDR4_INIT_BYTES(192, 168, 7, 1);
-static const ip_addr_t netmask = IPADDR4_INIT_BYTES(255, 255, 255, 0);
+/* network parameters of this MCU */  //169.254.23.253
+static const ip_addr_t ipaddr  = IPADDR4_INIT_BYTES(169, 254, 23, 253);
+static const ip_addr_t netmask = IPADDR4_INIT_BYTES(255, 255, 255, 252);
 static const ip_addr_t gateway = IPADDR4_INIT_BYTES(0, 0, 0, 0);
 
 /* database IP addresses that can be offered to the host; this must be in RAM to store assigned MAC addresses */
 static dhcp_entry_t entries[] =
 {
     /* mac ip address                          lease time */
-    { {0}, IPADDR4_INIT_BYTES(192, 168, 7, 2), 24 * 60 * 60 },
-    { {0}, IPADDR4_INIT_BYTES(192, 168, 7, 3), 24 * 60 * 60 },
-    { {0}, IPADDR4_INIT_BYTES(192, 168, 7, 4), 24 * 60 * 60 },
+    { {0}, IPADDR4_INIT_BYTES(169, 254, 23, 254), 24 * 60 * 60 },
 };
 
 static const dhcp_config_t dhcp_config =
@@ -198,12 +196,12 @@ void service_traffic(void)
 
 void dhcpd_init()
 {
-    while (dhserv_init(&dhcp_config) != ERR_OK);    
+    while (dhserv_init(&dhcp_config) != ERR_OK);
 }
 
 void wait_for_netif_is_up()
 {
-    while (!netif_is_up(&netif_data));    
+    while (!netif_is_up(&netif_data));
 }
 
 

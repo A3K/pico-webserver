@@ -52,7 +52,7 @@
 
 #define LWIP_HTTPD_CGI                  1
 #ifndef LWIP_HTTPD_SSI
-#define LWIP_HTTPD_SSI                  0
+#define LWIP_HTTPD_SSI                  1
 #define LWIP_HTTPD_SSI_INCLUDE_TAG      0
 #endif
 #define HTTPD_USE_CUSTOM_FSDATA         1
